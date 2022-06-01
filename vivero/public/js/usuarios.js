@@ -11,7 +11,7 @@ new Vue({
         this.searchUsers()
     },
     methods: {
-        saveUser() {
+        async saveUser() {
             try{
                 let req = await axios.post('user', this.newUser);
 
@@ -27,7 +27,7 @@ new Vue({
             }
         },
 
-        searchUsers() {
+        async searchUsers() {
             try{
                 let req = await axios.post('user', this.newUser);
 
