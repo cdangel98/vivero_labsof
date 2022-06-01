@@ -28,9 +28,12 @@
             </thead>
             <tbody>
                 <tr v-for="(item, index) in listUsers" :key="index">
-                    <th> ${ item.document } </th>
-                    <th> ${ item.name } </th>
-                    <th> ${ item.rol } </th>
+                    <td> ${ item.document } </td>
+                    <td> ${ item.name } </td>
+                    <td> ${ item.rol } </td>
+                </tr>
+                <tr v-if="listUsers.length == 0">
+                    <td colspan="3">Sin registros</td>
                 </tr>
             </tbody>
         </table>
