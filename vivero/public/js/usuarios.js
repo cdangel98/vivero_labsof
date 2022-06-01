@@ -1,12 +1,10 @@
+let newUser = { document: '', name: '', rol: '' }
+
 new Vue({
     el: '#app',
     delimiters: ['${', '}'],
     data: () => ({
-        newUser: {
-            document: '',
-            name: '',
-            rol: '',
-        },
+        newUser,
         listUsers: []
     }),
     mounted() {
@@ -14,11 +12,32 @@ new Vue({
     },
     methods: {
         saveUser() {
-            console.log(this.newUser)
+            try{
+                let req = await axios.post('user', this.newUser);
+
+                if(req.data > 0) {
+                    this.newUser = newUser
+                    this.searchUsers()
+                } else {
+                    alert('Ocurrio un error al crear el usuario')
+                }
+            } catch(e) {
+                alert('Ocurrio un error al crear el usuario')
+                console.error(e.message)
+            }
         },
 
         searchUsers() {
-            console.log(this.listUsers)
+            try{
+                let req = await axios.post('user', this.newUser);
+
+                if(req.data.length > 0) {
+                    this.listUsers = req.data
+                }
+            } catch(e) {
+                alert('Ocurrio un error al buscar los usuario')
+                console.error(e.message)
+            }
         }
     }
 })

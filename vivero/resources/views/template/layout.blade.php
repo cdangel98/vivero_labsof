@@ -7,6 +7,7 @@
     <title>@yield('title')</title>
     @section('scripts')
         <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     @show
 </head>
 <body>
