@@ -13,7 +13,7 @@ new Vue({
     methods: {
         async saveUser() {
             try{
-                let req = await axios.post('user', this.newUser);
+                let req = await axios.post('api/usuarios', this.newUser);
 
                 if(req.data > 0) {
                     this.newUser = newUser
@@ -29,7 +29,7 @@ new Vue({
 
         async searchUsers() {
             try{
-                let req = await axios.post('user', this.newUser);
+                let req = await axios.get('api/usuarios');
 
                 if(req.data.length > 0) {
                     this.listUsers = req.data
