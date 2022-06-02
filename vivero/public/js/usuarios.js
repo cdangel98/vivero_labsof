@@ -12,13 +12,13 @@ new Vue({
         this.searchUsers()
     },
     methods: {
-        validInput(index, type) {
+        validInput(data, type) {
             let regex = (type == "int") ? /^([0-9])*$/ : /^([a-zA-Z])*$/
-            return regex.test(this.newUser[index])
+            return regex.test(data)
         },
 
         async saveUser() {
-            if(this.validInput('document', 'int') && this.validInput('name', 'text') && this.newUser.rol != '') {
+            if(this.validInput(this.newUser.document, 'int') && this.validInput(this.newUser.name, 'text') && this.newUser.rol != '') {
                 try{
                     let req = await axios.post('api/usuarios', this.newUser);
                     console.log(this.newUser.document,this.newUser.name,this.newUser.rol)
