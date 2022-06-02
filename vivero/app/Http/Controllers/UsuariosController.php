@@ -37,7 +37,7 @@ class UsuariosController extends Controller
      */
     public function show(Usuarios $usuarios)
     {
-        //
+        
     }
 
     /**

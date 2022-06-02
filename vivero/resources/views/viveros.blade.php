@@ -7,6 +7,8 @@
 
 @section('title') Viveros @endsection
 
+@include('template/nav')
+
 @section('content')
     <div id="app">
         <form class="mb-3" @submit.prevent="saveVivero">
@@ -40,7 +42,7 @@
                     <td> ${ item.productor } </td>
                 </tr>
                 <tr v-if="listViveros.length == 0">
-                    <td colspan="3">Sin registros</td>
+                    <td colspan="4">Sin registros</td>
                 </tr>
             </tbody>
         </table>

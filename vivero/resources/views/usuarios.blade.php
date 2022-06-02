@@ -7,6 +7,8 @@
 
 @section('title') Usuarios @endsection
 
+@include('template/nav')
+
 @section('content')
     <div id="app">
         <form class="mb-3" @submit.prevent="saveUser">

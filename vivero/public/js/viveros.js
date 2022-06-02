@@ -21,7 +21,6 @@ new Vue({
             if(this.validInput(this.newVivero.nombre, 'text') && this.newVivero.departamento != '' && this.newVivero.municipio != '' && this.newVivero.productor != '') {
                 try{
                     let req = await axios.post('api/viveros', this.newVivero);
-                    console.log(this.newVivero.document,this.newVivero.name,this.newVivero.rol)
                     if(req.data > 0) {
                         this.newVivero = newVivero
                         this.searchViveros()

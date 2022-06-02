@@ -16,7 +16,6 @@
     @show
 </head>
 <body>
-    @include('template/nav')
 
     <div class="container">
         @yield('content')
