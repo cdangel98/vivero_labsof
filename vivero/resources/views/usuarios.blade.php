@@ -5,6 +5,8 @@
     <script defer src="{{asset('js/usuarios.js')}}"></script>
 @endsection
 
+@section('title') Usuarios @endsection
+
 @section('content')
     <div id="app">
         <form class="mb-3" @submit.prevent="saveUser">
