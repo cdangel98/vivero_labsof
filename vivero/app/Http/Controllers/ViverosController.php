@@ -15,7 +15,7 @@ class ViverosController extends Controller
      */
     public function index()
     {
-        //
+        return viveros::all();
     }
 
     /**
@@ -25,7 +25,7 @@ class ViverosController extends Controller
      */
     public function create()
     {
-        //
+        return viveros::create($request->all());
     }
 
     /**

@@ -26,9 +26,7 @@ class UsuariosController extends Controller
      */
     public function store(StoreUsuariosRequest $request)
     {
-        echo '*********';
-        var_dump($request);
-        return Usuarios::create($request->all());;
+        return Usuarios::create($request->all());
     }
 
     /**

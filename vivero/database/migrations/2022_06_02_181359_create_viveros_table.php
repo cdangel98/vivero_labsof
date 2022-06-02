@@ -15,6 +15,10 @@ class CreateViverosTable extends Migration
     {
         Schema::create('viveros', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre', 20)->unique();
+            $table->string('departamento');
+            $table->string('municipio');
+            $table->boolean('productor')->default(true);
             $table->timestamps();
         });
     }

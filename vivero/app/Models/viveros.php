@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class viveros extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['nombre', 'departamento', 'municipio', 'productor'];
 }
