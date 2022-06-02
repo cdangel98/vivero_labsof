@@ -21,7 +21,6 @@ new Vue({
             if(this.validInput(this.newUser.document, 'int') && this.validInput(this.newUser.name, 'text') && this.newUser.rol != '') {
                 try{
                     let req = await axios.post('api/usuarios', this.newUser);
-                    console.log(this.newUser.document,this.newUser.name,this.newUser.rol)
                     if(req.data > 0) {
                         this.newUser = newUser
                         this.searchUsers()
