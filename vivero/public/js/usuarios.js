@@ -5,7 +5,8 @@ new Vue({
     delimiters: ['${', '}'],
     data: () => ({
         newUser,
-        listUsers: []
+        listUsers: [],
+        message: '!Ups ha ocurrido algo',
     }),
     mounted() {
         this.searchUsers()
@@ -19,11 +20,10 @@ new Vue({
                     this.newUser = newUser
                     this.searchUsers()
                 } else {
-                    alert('Ocurrio un error al crear el usuario')
+                    swal(this.message, 'Error al crear el usuario', 'error')
                 }
             } catch(e) {
-                alert('Ocurrio un error al crear el usuario')
-                console.error(e.message)
+                swal(this.message, 'Error al crear el usuario', 'error')
             }
         },
 
@@ -35,8 +35,7 @@ new Vue({
                     this.listUsers = req.data
                 }
             } catch(e) {
-                alert('Ocurrio un error al buscar los usuario')
-                console.error(e.message)
+                swal(this.message, 'Error al buscar los usuario', 'error')
             }
         }
     }

@@ -8,7 +8,7 @@
 @section('content')
     <div id="app">
         <form class="mb-3" @submit.prevent="saveUser">
-            <div class="btn-group">
+            <div class="btn-group input-group">
                 <input class="form-control" v-model="newUser.document" placeholder="Cedula" type="text">
                 <input class="form-control" v-model="newUser.name" placeholder="Nombre" type="text">
                 <select class="form-control" v-model="newUser.rol">
