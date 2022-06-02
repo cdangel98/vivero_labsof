@@ -12,18 +12,27 @@ new Vue({
         this.searchUsers()
     },
     methods: {
-        async saveUser() {
-            try{
-                let req = await axios.post('api/usuarios', this.newUser);
+        validInput(index, type) {
+            let regex = (type == "int") ? /^([0-9])*$/ : /^([a-zA-Z])*$/
+            return regex.test(this.newUser[index])
+        },
 
-                if(req.data > 0) {
-                    this.newUser = newUser
-                    this.searchUsers()
-                } else {
+        async saveUser() {
+            if(this.validInput('document', 'int') && this.validInput('name', 'text') && this.newUser.rol != '') {
+                try{
+                    let req = await axios.post('api/usuarios', this.newUser);
+                    console.log(this.newUser.document,this.newUser.name,this.newUser.rol)
+                    if(req.data > 0) {
+                        this.newUser = newUser
+                        this.searchUsers()
+                    } else {
+                        swal(this.message, 'Error al crear el usuario', 'error')
+                    }
+                } catch(e) {
                     swal(this.message, 'Error al crear el usuario', 'error')
                 }
-            } catch(e) {
-                swal(this.message, 'Error al crear el usuario', 'error')
+            } else {
+                swal(this.message, 'El formato de los datos incorrecto o vacios', 'error')
             }
         },
 
