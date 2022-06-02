@@ -15,17 +15,7 @@ class UsuariosController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return Usuarios::all();
     }
 
     /**
@@ -36,7 +26,9 @@ class UsuariosController extends Controller
      */
     public function store(StoreUsuariosRequest $request)
     {
-        //
+        echo '*********';
+        var_dump($request);
+        return Usuarios::create($request->all());;
     }
 
     /**
